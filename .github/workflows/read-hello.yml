@@ -1,0 +1,21 @@
+# .github/workflows/read-hello.yml
+name: Print hello.txt
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  print-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1 → Check out the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2 → Read and output hello.txt
+      - name: Show hello.txt contents
+        run: |
+          echo "📄 Contents of hello.txt:"
+          cat hello.txt
